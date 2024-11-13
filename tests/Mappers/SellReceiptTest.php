@@ -32,9 +32,11 @@ class SellReceiptTest extends TestCase
         $this->mappedJsonString = '{"cashier_name":"\u0412\u0430\u0441\u044f \u041f\u0443\u043f\u043a\u0438\u04' .
             '3d","departament":"\u041e\u0442\u0434\u0435\u043b \u043f\u0440\u043e\u0434\u0430\u0436","good' .
             's":[{"good":{"code":"vm-123","name":"\u0411\u0438\u043e\u0432\u0430\u043a","barcode":"","head' .
-            'er":"","footer":"","price":5000,"tax":["123123"],"uktzed":""},"quantity":1000,"is_return":false,' .
+            'er":"","footer":"","price":5000,"tax":["123123"],"uktzed":"","excise_barcode":"","excise_barc' .
+            'odes":["ACDX762190","ACGX762549"]},"quantity":1000,"is_return":false,' .
             '"discounts":[]},{"good":{"code":"vm-124","name":"\u0411\u0438\u043e\u0432\u0430\u043a 2",' .
-            '"barcode":"","header":"","footer":"","price":2000,"tax":["123123"],"uktzed":""},' .
+            '"barcode":"","header":"","footer":"","price":2000,"tax":["123123"],"uktzed":"","excise_ba' .
+            'rcode":"","excise_barcodes":[]},' .
             '"quantity":2000,"is_return":false,"discounts":[]}],"delivery":{"emails":["admin@gmail.com"]},' .
             '"discounts":[],"payments":[{"type":"CASHLESS","value":"4000","la' .
             'bel":"\u0411\u0435\u0437\u0433\u043e\u0442\u0456\u0432\u043a\u043e\u0432\u0438\u0439"},{"ty' .
@@ -67,7 +69,8 @@ class SellReceiptTest extends TestCase
                     "header":"",
                     "footer":"",
                     "uktzed":null,
-                    "price":5000
+                    "price":5000,
+                    "excise_barcodes" : []
                  },
                  "good_id":null,
                  "sum":5000,
@@ -88,7 +91,8 @@ class SellReceiptTest extends TestCase
                     "header":"",
                     "footer":"",
                     "uktzed":null,
-                    "price":2000
+                    "price":2000,
+                    "excise_barcodes" : []
                  },
                  "good_id":null,
                  "sum":4000,
@@ -357,6 +361,9 @@ class SellReceiptTest extends TestCase
 
     public function testMap(): void
     {
+
+        $exisebarcodesJson = '["ACDX762190","ACGX762549"]';
+
         $goodTaxJson = '{
         "id": "8a18b9d2-2ecf-4979-9aef-655553b4c644",
         "code": 123123,
@@ -372,6 +379,9 @@ class SellReceiptTest extends TestCase
 
         $goodTax = (new GoodTaxMapper())->jsonToObject($goodTaxJson);
         $goodTaxes = new GoodTaxes([$goodTax]);
+        $exiseBarcodesA = json_decode($exisebarcodesJson, true);
+        $exiseBarcodes = (new Receipts\ExciseBarcodes\ExciseBarcodesMapper())->jsonToObject($exiseBarcodesA);
+
 
         $receipt = new SellReceipt(
             'Вася Пупкин',
@@ -387,6 +397,8 @@ class SellReceiptTest extends TestCase
                             '',
                             '',
                             '',
+                            '',
+                            $exiseBarcodes,
                             $goodTaxes
                         ),
                         1 * 1000
@@ -400,6 +412,8 @@ class SellReceiptTest extends TestCase
                             '',
                             '',
                             '',
+                            '',
+                            null,
                             $goodTaxes
                         ),
                         2 * 1000 // 2 шт
@@ -424,6 +438,10 @@ class SellReceiptTest extends TestCase
 
     public function testMapWithId()
     {
+        $exisebarcodesJson = '["ACDX762190","ACGX762549"]';
+        $exiseBarcodesA = json_decode($exisebarcodesJson, true);
+        $exiseBarcodes = (new Receipts\ExciseBarcodes\ExciseBarcodesMapper())->jsonToObject($exiseBarcodesA);
+
         $goodTaxJson = '{
         "id": "8a18b9d2-2ecf-4979-9aef-655553b4c644",
         "code": 123123,
@@ -454,6 +472,8 @@ class SellReceiptTest extends TestCase
                             '',
                             '',
                             '',
+                            '',
+                            $exiseBarcodes,
                             $goodTaxes
                         ),
                         1 * 1000
@@ -467,6 +487,8 @@ class SellReceiptTest extends TestCase
                             '',
                             '',
                             '',
+                            '',
+                            null,
                             $goodTaxes
                         ),
                         2 * 1000 // 2 шт

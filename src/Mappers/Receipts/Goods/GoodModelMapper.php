@@ -2,6 +2,7 @@
 
 namespace igorbunov\Checkbox\Mappers\Receipts\Goods;
 
+use igorbunov\Checkbox\Mappers\Receipts\ExciseBarcodes\ExciseBarcodesMapper;
 use igorbunov\Checkbox\Mappers\Receipts\Taxes\GoodTaxMapper;
 use igorbunov\Checkbox\Mappers\Shifts\TaxesMapper;
 use igorbunov\Checkbox\Models\Receipts\Goods\GoodModel;
@@ -9,14 +10,18 @@ use igorbunov\Checkbox\Models\Receipts\Goods\GoodModel;
 class GoodModelMapper
 {
     /**
-     * @param mixed $json
+     * @param  mixed  $json
+     *
      * @return GoodModel|null
+     * @throws \Exception
      */
     public function jsonToObject($json): ?GoodModel
     {
         if (is_null($json)) {
             return null;
         }
+
+        $excise_barcodes = (new ExciseBarcodesMapper())->jsonToObject($json['excise_barcodes']);
 
         $goods = new GoodModel(
             $json['code'],
@@ -25,7 +30,10 @@ class GoodModelMapper
             $json['barcode'] ?? '',
             $json['header'] ?? '',
             $json['footer'] ?? '',
-            $json['uktzed'] ?? ''
+            $json['uktzed'] ?? '',
+            $json['excise_barcode'] ?? '',
+            $excise_barcodes,
+
         );
 
         return $goods;
@@ -44,6 +52,13 @@ class GoodModelMapper
                 $goodTaxeRatesArr[] = $tax->code;
             }
         }
+        $exciseBarcodesArr = [];
+        if (!is_null($goodModel->excise_barcodes)) {
+            foreach ($goodModel->excise_barcodes->results as $barcode) {
+                $exciseBarcodesArr[] = $barcode;
+            }
+        }
+
 
         return [
             'code' => $goodModel->code,
@@ -54,6 +69,8 @@ class GoodModelMapper
             'price' => $goodModel->price,
             'tax' => $goodTaxeRatesArr,
             'uktzed' => $goodModel->uktzed,
+            'excise_barcode' => $goodModel->excise_barcode,
+            'excise_barcodes' => $exciseBarcodesArr,
         ];
     }
 }

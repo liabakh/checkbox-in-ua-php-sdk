@@ -42,7 +42,8 @@ class GetReceiptTest extends TestCase
                     "header":"header good 1",
                     "footer":"footer good 1",
                     "uktzed":null,
-                    "price":10
+                    "price":10,
+                    "excise_barcodes" : []
                  },
                  "good_id":null,
                  "sum":0,

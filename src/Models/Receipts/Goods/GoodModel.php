@@ -2,6 +2,7 @@
 
 namespace igorbunov\Checkbox\Models\Receipts\Goods;
 
+use igorbunov\Checkbox\Models\Receipts\ExciseBarcodes\ExciseBarcodes;
 use igorbunov\Checkbox\Models\Receipts\Taxes\GoodTaxes;
 
 class GoodModel
@@ -19,9 +20,15 @@ class GoodModel
     /** @var string $uktzed */
     public $uktzed;
     /** @var float $price */
+    /** @var string $excise_barcode */
+    public $excise_barcode;
+
     public $price;
     /** @var GoodTaxes|null $taxes */
     public $taxes;
+    /** @var ExciseBarcodes|null $excise_barcodes */
+    public ?ExciseBarcodes $excise_barcodes;
+
 
     public function __construct(
         string $code,
@@ -31,6 +38,8 @@ class GoodModel
         string $header = '',
         string $footer = '',
         string $uktzed = '',
+        string $excise_barcode = '',
+        ?ExciseBarcodes $excise_barcodes = null,
         ?GoodTaxes $taxes = null
     ) {
         $this->code = $code;
@@ -40,6 +49,8 @@ class GoodModel
         $this->header = $header;
         $this->footer = $footer;
         $this->uktzed = $uktzed;
+        $this->excise_barcode = $excise_barcode;
+        $this->excise_barcodes = $excise_barcodes;
         $this->taxes = $taxes;
     }
 }

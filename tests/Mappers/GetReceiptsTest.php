@@ -380,7 +380,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":null,
                           "uktzed":null,
-                          "price":600
+                          "price":600,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":600,
@@ -783,7 +784,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":null,
                           "uktzed":null,
-                          "price":5556010000
+                          "price":5556010000,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":5556010000,
@@ -1529,7 +1531,8 @@ class GetReceiptsTest extends TestCase
                           "header":"",
                           "footer":"",
                           "uktzed":null,
-                          "price":2200
+                          "price":2200,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":2200,
@@ -1921,7 +1924,8 @@ class GetReceiptsTest extends TestCase
                           "header":"",
                           "footer":"",
                           "uktzed":"1233321",
-                          "price":10000
+                          "price":10000,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":10,
@@ -2081,7 +2085,8 @@ class GetReceiptsTest extends TestCase
                           "header":"string",
                           "footer":"string",
                           "uktzed":null,
-                          "price":10
+                          "price":10,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":0,
@@ -2235,7 +2240,8 @@ class GetReceiptsTest extends TestCase
                           "header":"string",
                           "footer":"string",
                           "uktzed":"string",
-                          "price":10
+                          "price":10,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":0,
@@ -2634,7 +2640,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":null,
                           "uktzed":null,
-                          "price":300
+                          "price":300,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":0,
@@ -2993,7 +3000,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":null,
                           "uktzed":null,
-                          "price":1
+                          "price":1,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":0,
@@ -3014,7 +3022,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":null,
                           "uktzed":null,
-                          "price":1
+                          "price":1,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":0,
@@ -3170,7 +3179,8 @@ class GetReceiptsTest extends TestCase
                           "header":"",
                           "footer":"",
                           "uktzed":null,
-                          "price":1900
+                          "price":1900,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":190,
@@ -3315,7 +3325,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":null,
                           "uktzed":null,
-                          "price":290400
+                          "price":290400,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":290400,
@@ -3674,7 +3685,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":"100ml",
                           "uktzed":null,
-                          "price":2089
+                          "price":2089,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":2089,
@@ -3707,7 +3719,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":"300ml",
                           "uktzed":null,
-                          "price":2500
+                          "price":2500,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":2500,
@@ -3868,7 +3881,8 @@ class GetReceiptsTest extends TestCase
                           "header":"string",
                           "footer":"string",
                           "uktzed":"string",
-                          "price":10
+                          "price":10,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":0,
@@ -4048,7 +4062,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":null,
                           "uktzed":null,
-                          "price":27
+                          "price":27,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":0,
@@ -4240,7 +4255,8 @@ class GetReceiptsTest extends TestCase
                           "header":"тестовий",
                           "footer":"тестовий",
                           "uktzed":null,
-                          "price":1000
+                          "price":1000,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":1,
@@ -4634,7 +4650,8 @@ class GetReceiptsTest extends TestCase
                           "header":"ХЕДЕР",
                           "footer":"ФУТЕР",
                           "uktzed":"string",
-                          "price":10
+                          "price":10,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":0,
@@ -4969,7 +4986,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":null,
                           "uktzed":"2203 00 01 00",
-                          "price":1050
+                          "price":1050,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":5250,
@@ -5187,7 +5205,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":null,
                           "uktzed":null,
-                          "price":3998
+                          "price":3998,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":3998,
@@ -5341,7 +5360,8 @@ class GetReceiptsTest extends TestCase
                           "header":"",
                           "footer":"",
                           "uktzed":null,
-                          "price":25250
+                          "price":25250,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":25250,
@@ -5521,7 +5541,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":"100ml",
                           "uktzed":null,
-                          "price":2089
+                          "price":2089,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":2089,
@@ -5554,7 +5575,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":"300ml",
                           "uktzed":null,
-                          "price":2500
+                          "price":2500,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":2500,
@@ -5587,7 +5609,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":"35ml",
                           "uktzed":null,
-                          "price":2000
+                          "price":2000,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":2000,
@@ -5620,7 +5643,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":"100ml",
                           "uktzed":null,
-                          "price":3500
+                          "price":3500,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":3500,
@@ -5653,7 +5677,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":"200ml",
                           "uktzed":null,
-                          "price":3200
+                          "price":3200,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":3200,
@@ -5858,7 +5883,8 @@ class GetReceiptsTest extends TestCase
                           "header":null,
                           "footer":null,
                           "uktzed":null,
-                          "price":4200
+                          "price":4200,
+                          "excise_barcodes" : []
                        },
                        "good_id":null,
                        "sum":4200,
