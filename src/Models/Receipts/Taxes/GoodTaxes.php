@@ -47,4 +47,18 @@ class GoodTaxes
 
         return new GoodTaxes($taxesArr);
     }
+
+    public function getTaxesByCode(string $code): ?GoodTaxes
+    {
+        $taxesArr = [];
+
+        foreach ($this->results as $tax) {
+            if ($tax->code == $code) {
+                $taxesArr[] = $tax;
+            }
+        }
+
+        return new GoodTaxes($taxesArr);
+    }
+
 }
