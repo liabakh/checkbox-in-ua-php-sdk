@@ -4,7 +4,8 @@ namespace igorbunov\Checkbox\Mappers\Receipts\ExciseBarcodes;
 
 use igorbunov\Checkbox\Models\Receipts\ExciseBarcodes\ExciseBarcodes;
 
-class ExciseBarcodesMapper {
+class ExciseBarcodesMapper
+{
     /**
      * @param  mixed  $json
      *
@@ -27,8 +28,6 @@ class ExciseBarcodesMapper {
             }
         }
 
-        $excise_barcodes = new ExciseBarcodes($result);
-
-        return $excise_barcodes;
+        return new ExciseBarcodes($result);
     }
 }
